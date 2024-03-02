@@ -17,10 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from cliente import views
+# from cliente import views
+
+import cliente.views
+import Estoque.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index, name='index'),
-    path('cadastro', views.cadastro, name='cadastro')
+    path('',cliente.views.index, name='index'),
+    path('cadastro', cliente.views.cadastro, name='cadastro'),
+    path('listar', cliente.views.listar, name='listar'),
+    path('produtos', Estoque.views.produtos, name='produtos')
 ]
